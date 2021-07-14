@@ -1,95 +1,21 @@
 import React, {useState} from 'react'
-import { NavBar } from '../ui/NavBar'
 
-export const TareasEspacio = () => {
-
-    const [inviteModal, setInviteModal] = useState('')
+export const ModalBtnNewTask = () => {
     const [tareaModal, setTareaModal] = useState('')
 
-    const openCloseInviteModal = () => {
-        (inviteModal==='')
-        ? setInviteModal('is-active')
-        : setInviteModal('')
-    }
-
     const openCloseTareaModal = () => {
-      (tareaModal==='')
-      ? setTareaModal('is-active')
-      : setTareaModal('')
-  }
+        (tareaModal==='')
+        ? setTareaModal('is-active')
+        : setTareaModal('')
+    }
 
     return (
         <div>
-            <NavBar/>
-
-            <h1 className="title is-1 is-size-3-touch mt-2">Espacio 1</h1>
-            <hr/>
-            <h2 className="subtitle is-3 is-size-4-touch">Tareas</h2>
-
-            <button className="button is-primary is-rounded is-light is-pulled-right mr-3" onClick={openCloseInviteModal}> 
-              <i className="fas fa-user-plus mr-1"></i> 
-              Invitar
-            </button>
-
             <button className="button is-primary is-rounded is-light is-pulled-right mr-3" onClick={openCloseTareaModal}> 
               <i className="fas fa-plus mr-1"></i> 
               Nueva Tarea
             </button>
 
-            
-            
-
-{/* aqui va la tabla con los botones */}
-        <br/>
-        <br/>
-
-            {/* <div className="table-container"> */}
-              <table className="table is-fullwidth">
-                <tbody>
-                    <tr>
-                        <td className="is-vcentered">Tarea 1</td>
-                        <td>
-                            <button className="button is-success is-rounded is-light"><i className="fas fa-check"/></button>
-                            <button className="button is-primary is-rounded is-light"><i className="fas fa-search"/></button> 
-                            <button className="button is-info is-rounded is-light"><i className="fas fa-edit"/></button> 
-                            <button className="button is-danger is-rounded is-light"><i className="fas fa-door-open"/></button> 
-                        </td>
-                        
-                    </tr>
-                </tbody>
-              </table>
-            {/* </div> */}
-
-
-
-            <div className={`modal ${inviteModal}`}>
-                <div className="modal-background"></div>
-                <div className="modal-card">
-                  <header className="modal-card-head">
-                    <p className="modal-card-title">Invitar a Espacio</p>
-                    <button className="delete" aria-label="close" onClick={openCloseInviteModal}></button>
-                  </header>
-                  <section className="modal-card-body">
-
-                    <div className="field has-addons">
-                      <div className="control is-expanded">
-                        <input className="input" type="text" placeholder="Buscar por Email"/>
-                      </div>
-                      
-                      <div className="control">
-                        <button className="button is-info">
-                          Buscar
-                        </button>
-                      </div>
-                    </div>
-
-
-                  </section>
-                  <footer className="modal-card-foot">
-                    <button className="button">Cerrar</button>
-                  </footer>
-                </div>
-            </div>
 
 
             <div className={`modal ${tareaModal}`}>
@@ -129,9 +55,10 @@ export const TareasEspacio = () => {
                             <p className="control is-expanded">
                               <span className="select">
                                 <select>
-                                  <option selected>Categoría1</option>
-                                  <option>Categoría2</option>
-                                  <option>Categoría3</option>
+                                    <option defaultValue="DEFAULT" disabled>Escoja una categoría...</option>  
+                                    <option>Categoría1</option>
+                                    <option>Categoría2</option>
+                                    <option>Categoría3</option>
                                 </select>
                               </span>
                             
@@ -143,9 +70,10 @@ export const TareasEspacio = () => {
                             <p className="control is-expanded">
                               <span className="select">
                                 <select>
-                                  <option selected>Cotidiana</option>
-                                  <option>Semanal</option>
-                                  <option>Bi Semanal</option>
+                                    <option defaultValue="DEFAULT" disabled>Escoja un periodo de tiempo...</option>  
+                                    <option>Cotidiana</option>
+                                    <option>Semanal</option>
+                                    <option>Bi Semanal</option>
                                 </select>
                               </span>                           
                             </p>
