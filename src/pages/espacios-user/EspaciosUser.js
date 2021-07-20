@@ -2,7 +2,7 @@ import React from 'react'
 import { EspacioTupla } from '../../components/espacioTupla/EspacioTupla'
 
 import { ModalBtnNewSpace } from '../../components/modalBtnNewSpace/ModalBtnNewSpace'
-import { NavBar } from '../../components/ui/NavBar'
+
 
 export const EspaciosUser = () => {
 
@@ -22,9 +22,7 @@ export const EspaciosUser = () => {
   ]
 
     return (
-        <div>
-          <NavBar/>
-          
+        <div> 
           <h1 className="title is-1 is-size-3-touch mt-2">Mis Espacios</h1>
           <hr/>
 
