@@ -8,7 +8,7 @@ export const TareaTupla = ({tarea}) => {
     const {nombre} = tarea;
 
     return (
-        <tr>
+        <tr className="animate__animated animate__slideInRight">
             <td className="is-vcentered">{nombre}</td>
 
             <td>

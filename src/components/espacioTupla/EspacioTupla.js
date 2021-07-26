@@ -7,7 +7,7 @@ export const EspacioTupla = ({espacio}) => {
     const { nombre } = espacio
 
     return (
-        <tr>
+        <tr className="animate__animated animate__slideInRight">
             <td className="is-vcentered">{nombre}</td>
 
             <td>
