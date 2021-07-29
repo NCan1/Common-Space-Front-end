@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import './login.css'
 import logoConFondo from '../../resources/img/logo-letras.png'
 import { useForm } from '../../hooks/useForm'
-import { login } from '../../redux/actions/auth'
+import { startLogin } from '../../redux/actions/auth'
 
 export const Login = ({history}) => {
 
@@ -21,7 +21,7 @@ export const Login = ({history}) => {
     // e.preventDefault //Para evitar la propagación del formualrio, en caso de usar etiqueta <form></form> con onSubmit={handleLogin}
     //history.push('/mis-espacios')
     console.log(email+' ' + password);
-    dispatch(login('123', 'nombreUser'))
+    dispatch(startLogin(email, password))
   }
 
   return (
