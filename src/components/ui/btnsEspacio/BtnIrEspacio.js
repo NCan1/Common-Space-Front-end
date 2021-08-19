@@ -1,11 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import './btnsEspacio.css'
 
-export const BtnIrEspacio = () => {
+
+export const BtnIrEspacio = ({espacio}) => {
+    const {idEspacio} = espacio
+
+
     return (
         <>
-            <button className="button is-primary is-rounded is-light">
+            <Link to={`/mis-espacios/${idEspacio}`} className="button is-primary is-rounded is-light">
                 <i className="far fa-share-square "/>
-            </button>
+            </Link>  
         </>
     )
 }

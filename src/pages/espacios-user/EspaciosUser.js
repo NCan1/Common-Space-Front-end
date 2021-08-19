@@ -1,51 +1,47 @@
-import React from 'react'
-import { EspacioTupla } from '../../components/espacioTupla/EspacioTupla'
+import React, {useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
+
+import { EspacioTupla } from '../../components/espacioTupla/EspacioTupla'
 import { ModalBtnNewSpace } from '../../components/modalBtnNewSpace/ModalBtnNewSpace'
+import { spacesStartLoading } from '../../redux/actions/espaciosAction'
 
 
 export const EspaciosUser = () => {
 
-    const espacios=[
-    {
-      idEspacio: 1,
-      nombre: 'casa'
-    },
-    {
-      idEspacio: 2,
-      nombre: 'depa'
-    },
-    {
-      idEspacio: 3,
-      nombre: 'cabaña'
-    }
-  ]
+  const dispatch = useDispatch();
+  //const {idUser}= useSelector(state =>state.auth)
+  const {espacios}= useSelector(state => state.espacios)
+  
+  useEffect(() => {
+    dispatch( spacesStartLoading(1) );//idUser
+  },[dispatch] )
 
-    return (
-        <div> 
-          <h1 className="title is-1 is-size-3-touch mt-2">Mis Espacios</h1>
-          <hr/>
+  
+  if(!espacios){
+    return (<div className="control is-large is-loading" />)
+  } 
 
-          <ModalBtnNewSpace/>
-            
-          <br/>
-          <br/>
+ 
+  return (
+      <div> 
+        <h1 className="title is-1 is-size-3-touch mt-2">Mis Espacios</h1>
+        <hr/>
+        <ModalBtnNewSpace/>  
+        <br/>
+        <br/>
 
-            {/* <div className="table-container"> */}
-              <table className="table is-fullwidth">
-                <tbody>
-                {
-                  espacios.map(e =>(
-                    <EspacioTupla key={e.idEspacio} espacio={e}/>
-                    )
+            <table className="table is-fullwidth">
+              <tbody>
+              {
+                espacios.map(e =>(
+                  <EspacioTupla key={e.idEspacio} espacio={e}/>
                   )
-                }
-                  
-                    
-                </tbody>
-              </table>
-            {/* </div> */}
-
-        </div>
-    )
+                )
+              }  
+              </tbody>
+            </table>
+     
+      </div>
+  )
 }

@@ -5,15 +5,15 @@ import { BtnRealizarTarea } from '../ui/btnsTarea/BtnRealizarTarea';
 import { BtnVerTarea } from '../ui/btnsTarea/BtnVerTarea';
 
 export const TareaTupla = ({tarea}) => {
-    const {nombre} = tarea;
+    const {Nombre} = tarea;
 
     return (
         <tr className="animate__animated animate__slideInRight">
-            <td className="is-vcentered">{nombre}</td>
+            <td className="is-vcentered">{Nombre}</td>
 
             <td>
                 <BtnRealizarTarea/>
-                <BtnVerTarea/> 
+                <BtnVerTarea tarea={tarea}/> 
                 <BtnEditarTarea/>
                 <BtnEliminarTarea/>
             </td>

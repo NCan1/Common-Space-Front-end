@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import logoLetras from '../../resources/img/Logo-Texto-1700x230.png'
 //Logo-Texto-600x81.png
 //Logo-Texto-1700x230.png
+import { startLogout } from '../../redux/actions/authAction'
 
 export const NavBar = () => {
     const [menuState, setMenuState] = useState('')
+    const dispatch = useDispatch()
 
     const clickMenu = () =>{
         (menuState==='')
@@ -13,9 +16,13 @@ export const NavBar = () => {
         : setMenuState('')
     }
 
+    const handleLogout = () => {
+        dispatch( startLogout() );
+    }
+
     return (
         <div>
-            <nav className="navbar is-light " role="navigation" aria-label="main navigation">
+            <nav className="navbar is-black " role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <img src={logoLetras} alt="Common Space Logo" width="300" height="41"/>
                     
@@ -35,14 +42,14 @@ export const NavBar = () => {
                         
                             <div className="navbar-dropdown is-right">
                               <div className="navbar-item button is-primary is-inverted">
-                                Mis Datos
+                                Mi Perfil
                               </div>
                               <div className="navbar-item button is-primary is-inverted">
                                 Mis Espacios
                               </div>
                         
                               <hr className="navbar-divider"/>
-                              <div className="navbar-item button is-danger is-inverted">
+                              <div className="navbar-item button is-danger is-inverted" onClick={handleLogout}>
                                 Salir
                               </div>
                             </div>
